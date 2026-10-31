@@ -1,0 +1,85 @@
+{
+  "estacao_alvo": {
+    "codigo": "26350000",
+    "nome": "SÃO FÉLIX DO ARAGUAIA",
+    "rio": "Rio Araguaia",
+    "municipio": "São Félix do Araguaia-MT",
+    "lat": -11.6181,
+    "lon": -50.6625,
+    "papel": "estação alvo (jusante)"
+  },
+  "estacao_montante": {
+    "codigo": "25700000",
+    "nome": "BANDEIRANTES",
+    "rio": "Rio Araguaia",
+    "municipio": "Nova Crixás-GO",
+    "lat": -13.6425,
+    "lon": -50.7839,
+    "papel": "estação a montante"
+  },
+  "horizonte_dias": 7,
+  "treino": "2014-01-01 a 2021-12-31",
+  "features": [
+    "h0",
+    "h1",
+    "dh3",
+    "u0",
+    "u1",
+    "u2",
+    "du3",
+    "doy_sin",
+    "doy_cos"
+  ],
+  "coeficientes": {
+    "h0": 2.59791,
+    "h1": -1.7669,
+    "dh3": 0.27997,
+    "u0": 0.56567,
+    "u1": -1.58624,
+    "u2": 1.17969,
+    "du3": 0.75326,
+    "doy_sin": 0.04476,
+    "doy_cos": 0.08286
+  },
+  "intercepto": -0.06393,
+  "features_reserva": [
+    "h0",
+    "h1",
+    "dh3",
+    "doy_sin",
+    "doy_cos"
+  ],
+  "coeficientes_reserva": {
+    "h0": 3.90014,
+    "h1": -3.00096,
+    "dh3": 0.28039,
+    "doy_sin": 0.14673,
+    "doy_cos": 0.15945
+  },
+  "intercepto_reserva": 0.45241,
+  "n_previsoes": {
+    "cota_cota": 3959,
+    "sem_montante": 229
+  },
+  "desempenho": {
+    "teste": {
+      "n": 681,
+      "rmse": 0.175,
+      "mae": 0.135,
+      "vies": 0.088
+    },
+    "treino": {
+      "n": 2739,
+      "rmse": 0.164,
+      "mae": 0.115,
+      "vies": 0.0
+    },
+    "validacao": {
+      "n": 721,
+      "rmse": 0.145,
+      "mae": 0.108,
+      "vies": 0.073
+    }
+  },
+  "aviso": "previsão substituta, não são as previsões do pesquisador"
+}

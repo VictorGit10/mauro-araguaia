@@ -1,0 +1,271 @@
+== SÃO FÉLIX DO ARAGUAIA (26350000, alvo) ==
+  2014:   0.07 MB (comprimido)
+  2015:   0.09 MB (comprimido)
+  2016:   0.10 MB (comprimido)
+  2017:   0.10 MB (comprimido)
+  2018:   0.11 MB (comprimido)
+  2019:   0.10 MB (comprimido)
+  2020:   0.07 MB (comprimido)
+  2021:   0.08 MB (comprimido)
+  2022:   0.10 MB (comprimido)
+  2023:   0.09 MB (comprimido)
+  2024:   0.10 MB (comprimido)
+  2025:   0.10 MB (comprimido)
+== BANDEIRANTES (25700000, montante) ==
+  2014:   0.10 MB (comprimido)
+  2015:   0.10 MB (comprimido)
+  2016:   0.12 MB (comprimido)
+  2017:   0.12 MB (comprimido)
+  2018:   0.11 MB (comprimido)
+  2019:   0.12 MB (comprimido)
+  2020:   0.12 MB (comprimido)
+  2021:   0.11 MB (comprimido)
+  2022:   0.11 MB (comprimido)
+  2023:   0.10 MB (comprimido)
+  2024:   0.10 MB (comprimido)
+  2025:   0.09 MB (comprimido)
+
+Total em disco (comprimido): 2.4 MB
+Modelo fixo: era5
+Chuva da bacia: 2014-01-01 a 2025-12-31, 4383 dias
+Média anual (mm):
+data
+2014    1537.0
+2015    1316.0
+2016    1445.0
+2017    1466.0
+2018    1340.0
+2019    1192.0
+2020    1392.0
+2021    1597.0
+2022    1423.0
+2023    1120.0
+2024    1279.0
+2025    1156.0
+Chuva: reanálise ERA5 (Open-Meteo), modelo fixo
+Série diária: 2014-01-01 a 2025-12-31 (4383 dias)
+  nivel_alvo      válidos= 4217  min=   2.47  max=   8.67
+  chuva_alvo      válidos= 4245  min=   0.00  max= 300.00
+  nivel_montante  válidos= 4152  min=   2.83  max=   8.78
+  chuva_montante  válidos= 4039  min=   0.00  max= 122.80
+  chuva_bacia_mm  válidos= 4383  min=   0.00  max=  77.77
+Dias sem nível em alguma das duas estações: 386
+teste {'n': 681, 'rmse': 0.175, 'mae': 0.135, 'vies': 0.088}
+treino {'n': 2739, 'rmse': 0.164, 'mae': 0.115, 'vies': 0.0}
+validacao {'n': 721, 'rmse': 0.145, 'mae': 0.108, 'vies': 0.073}
+
+Coeficientes do modelo cota-cota (ajustado só em 2014-2021):
+  h0            2.5979
+  h1           -1.7669
+  dh3           0.2800
+  u0            0.5657
+  u1           -1.5862
+  u2            1.1797
+  du3           0.7533
+  doy_sin       0.0448
+  doy_cos       0.0829
+  intercepto   -0.0639
+Coeficientes do modelo de reserva (sem montante):
+  h0            3.9001
+  h1           -3.0010
+  dh3           0.2804
+  doy_sin       0.1467
+  doy_cos       0.1594
+  intercepto    0.4524
+
+4188 previsões gravadas em dados/previsao_referencia.csv
+Previsões: 4188 linhas, modelos: ['cota_cota', 'sem_montante']
+
+== modelo 'cota_cota': 3959 previsões, 2621 linhas de treino ==
+  Kalman: q=1e-05, r=0.1 (validação; q/r no limite: True/False)
+  AR, RF, HGB e corretor enxuto ajustados
+  walk-forward 2022: ajuste com 2621 linhas, previsão em 365 dias
+  walk-forward 2023: ajuste com 2986 linhas, previsão em 359 dias
+  walk-forward 2024: ajuste com 3342 linhas, previsão em 265 dias
+  walk-forward 2025: ajuste com 3600 linhas, previsão em 319 dias
+
+== modelo 'sem_montante': 229 previsões, 118 linhas de treino ==
+  Kalman: q=0.01, r=1 (validação; q/r no limite: False/False)
+  treino insuficiente (118 < 200): só persistência e Kalman
+  walk-forward 2024: treino insuficiente (118 < 200); só Kalman
+  walk-forward 2025: treino insuficiente (183 < 200); só Kalman
+
+Saídas em <pasta>\mauro\dados: previsoes_corrigidas.csv (4188 linhas), previsoes_walkforward.csv, config_correcoes.json
+Limiar de cheia (P90 da cota observada no treino): 6.97 m
+Eventos de cheia no teste: 1
+  2025-01-19 a 2025-03-09 (50 dias)
+
+===== modelo: cota_cota =====
+teste: 584 emissões; amostra comum: 528; cheia: 31 dias; métodos: ['previsao_original', 'persistencia', 'ar', 'kalman', 'rf', 'hgb', 'rf_enxuto']
+  19 dias de cheia fora da amostra (2025-02-19 a 2025-03-09)
+              metodo   n  rmse   mae  vies  habilidade
+   previsao_original 528 0.172 0.132 0.113       0.000
+        persistencia 528 0.180 0.113 0.000      -0.092
+                  ar 528 0.172 0.132 0.113       0.005
+              kalman 528 0.132 0.086 0.013       0.415
+                  rf 528 0.162 0.115 0.102       0.114
+                 hgb 528 0.173 0.127 0.112      -0.012
+           rf_enxuto 528 0.164 0.118 0.101       0.093
+   persistencia_cota 528 0.336 0.221 0.036      -2.810
+correcao_embaralhada 528 0.135 0.086 0.013       0.387
+
+===== modelo: sem_montante =====
+teste: 111 emissões; amostra comum: 97; cheia: 12 dias; métodos: ['previsao_original', 'persistencia', 'kalman']
+              metodo  n  rmse   mae   vies  habilidade
+   previsao_original 97 0.211 0.168 -0.043       0.000
+        persistencia 97 0.254 0.205  0.002      -0.442
+              kalman 97 0.246 0.196 -0.018      -0.359
+   persistencia_cota 97 0.403 0.364 -0.088      -2.632
+correcao_embaralhada 97 0.238 0.189 -0.018      -0.273
+
+Sensibilidade do Kalman a (q, r) na mesma amostra de teste:
+     q   r  rmse_teste  ganho_estacionario_K  memoria_aprox_dias
+0.0000 0.1      0.1317                0.0100            100.0000
+0.0001 0.1      0.1326                0.0316             31.6228
+0.0010 1.0      0.1326                0.0316             31.6228
+0.0100 1.0      0.1385                0.1000             10.0000
+0.0010 0.1      0.1385                0.1000             10.0000
+
+Diferenças pareadas (geral, ajuste fixo) — delta de habilidade e IC95:
+      modelo                       comparacao  delta_habilidade  ic95_inf  ic95_sup  p_a_melhor
+   cota_cota       kalman - previsao_original             0.421     0.268     0.581       1.000
+   cota_cota                      rf - kalman            -0.316    -0.650    -0.023       0.020
+   cota_cota                     hgb - kalman            -0.446    -0.854    -0.097       0.006
+   cota_cota           ar - previsao_original             0.004    -0.008     0.014       0.744
+   cota_cota           rf - previsao_original             0.105    -0.173     0.336       0.798
+   cota_cota          hgb - previsao_original            -0.026    -0.374     0.237       0.466
+   cota_cota               rf_enxuto - kalman            -0.328    -0.498    -0.130       0.005
+   cota_cota    rf_enxuto - previsao_original             0.092    -0.024     0.220       0.934
+   cota_cota persistencia - previsao_original            -0.072    -0.402     0.318       0.321
+   cota_cota                   rf - rf_enxuto             0.012    -0.191     0.170       0.579
+sem_montante       kalman - previsao_original            -0.343    -0.627     0.021       0.034
+sem_montante persistencia - previsao_original            -0.454    -0.756    -0.235       0.000
+
+Diferenças pareadas (cheia, blocos de 7 dias):
+      modelo       ajuste                       comparacao  delta_habilidade  ic95_inf  ic95_sup
+   cota_cota         fixo       kalman - previsao_original             0.453     0.334     0.767
+   cota_cota         fixo                      rf - kalman            -0.110    -0.349    -0.012
+   cota_cota         fixo                     hgb - kalman            -0.394    -1.483    -0.010
+   cota_cota         fixo           ar - previsao_original             0.018    -0.023     0.037
+   cota_cota         fixo           rf - previsao_original             0.343     0.200     0.645
+   cota_cota         fixo          hgb - previsao_original             0.059    -0.765     0.333
+   cota_cota         fixo               rf_enxuto - kalman            -0.358    -0.917    -0.153
+   cota_cota         fixo    rf_enxuto - previsao_original             0.095    -0.220     0.220
+   cota_cota         fixo persistencia - previsao_original            -0.811    -3.875     0.186
+   cota_cota         fixo                   rf - rf_enxuto             0.248     0.081     0.670
+   cota_cota walk-forward                rf_wf - kalman_wf            -0.166    -0.522    -0.030
+   cota_cota walk-forward               hgb_wf - kalman_wf            -0.108    -0.707     0.091
+   cota_cota walk-forward         rf_enxuto_wf - kalman_wf            -0.316    -0.896    -0.137
+   cota_cota walk-forward             rf_wf - rf_enxuto_wf             0.150     0.032     0.529
+   cota_cota walk-forward    kalman_wf - previsao_original             0.453     0.334     0.767
+   cota_cota walk-forward        ar_wf - previsao_original             0.225     0.158     0.394
+sem_montante         fixo       kalman - previsao_original            -2.243    -4.771    -0.629
+sem_montante         fixo persistencia - previsao_original            -0.237    -1.849     0.792
+sem_montante walk-forward    kalman_wf - previsao_original            -1.989    -4.771    -0.629
+OK  10.1016/S0022-1694(01)00420-6 -> The case for probabilistic forecasting in hydrology
+OK  10.1029/2005WR004093 -> Particle filtering and ensemble Kalman filtering for state updating with hydrological conc
+OK  10.5194/hess-16-3863-2012 -> Advancing data assimilation in operational hydrologic forecasting: progresses, challenges,
+OK  10.1029/2010WR009137 -> Multiscale error analysis, correction, and predictive uncertainty estimation in a flood fo
+OK  10.5194/hess-22-6005-2018 -> Rainfall–runoff modelling using Long Short-Term Memory (LSTM) networks
+OK  10.1038/s41586-024-07145-1 -> Global prediction of extreme floods in ungauged watersheds
+OK  10.5194/hess-26-4013-2022 -> Flood forecasting with machine learning models in an operational framework
+OK  10.1029/2003WR002540 -> A stochastic approach for assessing the uncertainty of rainfall‐runoff simulations
+OK  10.5194/hess-22-4815-2018 -> Toward continental hydrologic–hydrodynamic  modeling in South America
+
+9/9 conferem
+{
+  "periodo": [
+    "2014-01-01",
+    "2025-12-31"
+  ],
+  "dias": 4383,
+  "validos": {
+    "nivel_alvo": 4217,
+    "chuva_alvo": 4245,
+    "nivel_montante": 4152,
+    "chuva_montante": 4039,
+    "chuva_bacia_mm": 4383
+  },
+  "arquivos_brutos": 24,
+  "tamanho_bruto_mb": 2.44,
+  "registros_15min": {
+    "26350000": 387941,
+    "25700000": 412205
+  },
+  "lacunas_nivel": {
+    "nivel_alvo": {
+      "total_dias": 166,
+      "maior_lacuna_dias": 90,
+      "lacunas_maiores_3d": 4
+    },
+    "nivel_montante": {
+      "total_dias": 231,
+      "maior_lacuna_dias": 115,
+      "lacunas_maiores_3d": 4
+    }
+  },
+  "teste_dias_sem_nivel_alvo": 33,
+  "chuva_bacia_media_anual_mm": 1355.0
+}
+Estação 25200000 (ARUANÃ) — 2014-01-01 a 2025-12-31
+P90 da cota diária no treino (2014–2021): 4.92 m
+
+Máxima anual e dias acima do P90 do treino:
+  2014: máx =  5.96 m   dias ≥ P90 =  45
+  2015: máx =  6.24 m   dias ≥ P90 =  50
+  2016: máx =  6.34 m   dias ≥ P90 =  32
+  2017: máx =  5.68 m   dias ≥ P90 =  15
+  2018: máx =  5.52 m   dias ≥ P90 =  26
+  2019: máx =  6.11 m   dias ≥ P90 =  28
+  2020: máx =  6.63 m   dias ≥ P90 =  45
+  2021: máx =  6.07 m   dias ≥ P90 =  37
+  2022: máx =  6.91 m   dias ≥ P90 =  59
+  2023: máx =  5.85 m   dias ≥ P90 =  34
+  2024: máx =  4.90 m   dias ≥ P90 =   0
+  2025: máx =  4.57 m   dias ≥ P90 =   0
+
+Cache: 12 arquivos, 1.28 MB comprimidos
+Salvo em dados/aruana_resumo.json
+Baixando a chuva 'Best Match' (a que era usada antes)...
+
+== modelo 'cota_cota': 3959 previsões, 2621 linhas de treino ==
+  Kalman: q=1e-05, r=0.1 (validação; q/r no limite: True/False)
+  AR, RF, HGB e corretor enxuto ajustados
+  walk-forward 2022: ajuste com 2621 linhas, previsão em 365 dias
+  walk-forward 2023: ajuste com 2986 linhas, previsão em 359 dias
+  walk-forward 2024: ajuste com 3342 linhas, previsão em 265 dias
+  walk-forward 2025: ajuste com 3600 linhas, previsão em 319 dias
+
+Ablação da chuva (mesma amostra de datas):
+      metodo   n  rmse_era5  rmse_bestmatch  diferenca_bm_menos_era5
+persistencia 528      0.180           0.180                    0.000
+          ar 528      0.172           0.172                    0.000
+      kalman 528      0.132           0.132                    0.000
+          rf 528      0.162           0.156                   -0.006
+         hgb 528      0.173           0.160                   -0.014
+   rf_enxuto 528      0.164           0.164                    0.000
+
+Chuva: {'media_anual_era5_mm': 1355.0, 'media_anual_bestmatch_mm': 1380.0, 'dias_mudados': 2211}
+Caso 1: um modelo, sem coluna 'modelo'
+  ok: 3959 linhas, modelo informado
+Caso 2: três modelos nas mesmas datas
+  ok: 8147 linhas, modelos ['modelo_perturbado', 'modelo_sem_montante', 'modelo_unico_cota_cota']
+  ok: modelo com treino curto ficou só com persistência e Kalman
+  ok: config_correcoes.json lista os 3 modelos
+
+Todos os testes de troca de previsão passaram.
+Testes de vazamento de futuro
+- test_futuro_perturbado_nao_muda_features
+  ok: 130 datas testadas; nenhuma variável mudou ao perturbar o futuro
+- test_tabela_salva_confere_com_recalculo
+  ok: tabela_erros.csv reproduz as features recalculadas
+- test_erro_mais_recente_e_do_t_menos_7
+  ok: e7 = observado(t) - previsão emitida em t-7
+- test_erros_verificados_na_data_certa
+  ok: e7, e14, e21 e e28 conferem com a definição em 3 datas
+- test_previsao_nao_muda_com_futuro
+  ok: previsão de 7 dias reproduzida sem olhar o futuro
+- test_leak_proposital_e_pego
+  ok: vazamento proposital detectado na variável ['obs_futuro']
+
+Todos os testes passaram.

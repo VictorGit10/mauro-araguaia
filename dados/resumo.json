@@ -1,0 +1,99 @@
+{
+  "limiar_cheia_m": 6.97,
+  "eventos_cheia": [
+    {
+      "inicio": "2025-01-19T00:00:00",
+      "fim": "2025-03-09T00:00:00",
+      "dias": 50
+    }
+  ],
+  "modelos": {
+    "cota_cota": {
+      "n_teste": 584,
+      "n_amostra_comum": 528,
+      "n_cheia": 31,
+      "metodos_disponiveis": [
+        "previsao_original",
+        "persistencia",
+        "ar",
+        "kalman",
+        "rf",
+        "hgb",
+        "rf_enxuto"
+      ],
+      "rmse_geral": {
+        "previsao_original": 0.172,
+        "persistencia": 0.18,
+        "ar": 0.172,
+        "kalman": 0.132,
+        "rf": 0.162,
+        "hgb": 0.173,
+        "rf_enxuto": 0.164
+      },
+      "habilidade_geral": {
+        "previsao_original": 0.0,
+        "persistencia": -0.092,
+        "ar": 0.005,
+        "kalman": 0.415,
+        "rf": 0.114,
+        "hgb": -0.012,
+        "rf_enxuto": 0.093
+      },
+      "rmse_cheia": {
+        "previsao_original": 0.36,
+        "persistencia": 0.418,
+        "ar": 0.356,
+        "kalman": 0.28,
+        "rf": 0.3,
+        "hgb": 0.324,
+        "rf_enxuto": 0.334
+      },
+      "habilidade_cheia": {
+        "previsao_original": 0.0,
+        "persistencia": -0.349,
+        "ar": 0.024,
+        "kalman": 0.396,
+        "rf": 0.307,
+        "hgb": 0.193,
+        "rf_enxuto": 0.141
+      },
+      "fora_amostra_cheia": {
+        "n": 19,
+        "inicio": "2025-02-19",
+        "fim": "2025-03-09"
+      }
+    },
+    "sem_montante": {
+      "n_teste": 111,
+      "n_amostra_comum": 97,
+      "n_cheia": 12,
+      "metodos_disponiveis": [
+        "previsao_original",
+        "persistencia",
+        "kalman"
+      ],
+      "rmse_geral": {
+        "previsao_original": 0.211,
+        "persistencia": 0.254,
+        "kalman": 0.246
+      },
+      "habilidade_geral": {
+        "previsao_original": 0.0,
+        "persistencia": -0.442,
+        "kalman": -0.359
+      },
+      "rmse_cheia": {
+        "previsao_original": 0.158,
+        "persistencia": 0.153,
+        "kalman": 0.263
+      },
+      "habilidade_cheia": {
+        "previsao_original": 0.0,
+        "persistencia": 0.062,
+        "kalman": -1.773
+      },
+      "fora_amostra_cheia": {}
+    }
+  },
+  "modelo_principal": "cota_cota"
+}

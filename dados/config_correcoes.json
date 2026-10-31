@@ -1,0 +1,41 @@
+{
+  "arquivo_previsao": "previsao_referencia.csv",
+  "horizonte": 7,
+  "treino_fim": "2021-12-31",
+  "validacao_fim": "2023-12-31",
+  "min_treino": 200,
+  "modelos": [
+    {
+      "modelo": "cota_cota",
+      "n_previsoes": 3959,
+      "n_treino": 2621,
+      "min_treino": 200,
+      "kalman_q": 1e-05,
+      "kalman_r": 0.1,
+      "kalman_no_limite_da_grade": true,
+      "metodos_disponiveis": [
+        "previsao_original",
+        "persistencia",
+        "ar",
+        "kalman",
+        "rf",
+        "hgb",
+        "rf_enxuto"
+      ]
+    },
+    {
+      "modelo": "sem_montante",
+      "n_previsoes": 229,
+      "n_treino": 118,
+      "min_treino": 200,
+      "kalman_q": 0.01,
+      "kalman_r": 1.0,
+      "kalman_no_limite_da_grade": false,
+      "metodos_disponiveis": [
+        "previsao_original",
+        "persistencia",
+        "kalman"
+      ]
+    }
+  ]
+}

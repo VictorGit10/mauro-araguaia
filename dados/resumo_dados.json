@@ -1,0 +1,34 @@
+{
+  "periodo": [
+    "2014-01-01",
+    "2025-12-31"
+  ],
+  "dias": 4383,
+  "validos": {
+    "nivel_alvo": 4217,
+    "chuva_alvo": 4245,
+    "nivel_montante": 4152,
+    "chuva_montante": 4039,
+    "chuva_bacia_mm": 4383
+  },
+  "arquivos_brutos": 24,
+  "tamanho_bruto_mb": 2.44,
+  "registros_15min": {
+    "26350000": 387941,
+    "25700000": 412205
+  },
+  "lacunas_nivel": {
+    "nivel_alvo": {
+      "total_dias": 166,
+      "maior_lacuna_dias": 90,
+      "lacunas_maiores_3d": 4
+    },
+    "nivel_montante": {
+      "total_dias": 231,
+      "maior_lacuna_dias": 115,
+      "lacunas_maiores_3d": 4
+    }
+  },
+  "teste_dias_sem_nivel_alvo": 33,
+  "chuva_bacia_media_anual_mm": 1355.0
+}

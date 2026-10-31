@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Se reutilizar este trabalho, cite como abaixo."
+title: "Do formulário à comparação de correções — Araguaia"
+abstract: >-
+  Correção dos erros de previsão de cota em 7 dias (São Félix do Araguaia) com métodos tradicionais e aprendizado de máquina, sem vazar o futuro.
+authors:
+  - family-names: "Amaral"
+    given-names: "Victor"
+    affiliation: "LAPIG/UFG"
+date-released: 2026-10-31
+url: "https://victorgit10.github.io/mauro-araguaia/"
+repository-code: "https://github.com/VictorGit10/mauro-araguaia"
+license: CC-BY-4.0
+keywords:
+  - "previsão hidrológica"
+  - "correção de erros"
+  - "filtro de Kalman"
+  - "Random Forest"
+  - "Araguaia"
+  - "IA generativa"

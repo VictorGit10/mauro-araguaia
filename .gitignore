@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+*.tif
+*.tiff
+dados/monitorar_20*.zip
+.env
+.env.*
+credentials*.json
+*.key

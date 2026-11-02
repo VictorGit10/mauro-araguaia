@@ -23,7 +23,7 @@ Encontro individual do Estágio Docência · LAPIG/UFG · 03/11/2026.
 3. Outros modelos revisaram sem poder alterar nada (MiniMax M3.1 e Gemini Argon). Cada afirmação deles foi conferida no código antes de corrigir.
 4. A página foi redigida pelo Gemini 3.8 a partir de um briefing com os fatos conferidos, e revisada.
 
-Os arquivos brutos maiores (mosaicos, ZIPs baixados) não estão no repositório: os scripts baixam de novo. O projeto do Earth Engine aparece como `SEU-PROJETO-EARTH-ENGINE`: troque pelo seu.
+Os dados brutos da ANA já estão no repositório (`dados/bruto/`), e os scripts baixam de novo se for preciso. Nada aqui exige cadastro ou chave de acesso.
 
 ## Continuar com uma IA
 
